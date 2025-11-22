@@ -1,37 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import logo from '../src/assets/logo.jpg';
 
 // Exact Green Lane Logo Recreation
 const Logo = ({ isDark = false }: { isDark?: boolean }) => (
   <div className="flex items-center gap-3 group cursor-pointer">
-    <div className="relative w-12 h-12 flex-shrink-0">
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-        {/* Top Chevron / Lane - Uses Primary Brand Green */}
-        <motion.path 
-          d="M25 55 C 25 55, 45 35, 75 35 L 85 45 C 85 45, 55 45, 40 65 Z" 
-          fill="#007A53"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        />
-        {/* Bottom Chevron / Lane - Uses Darker Brand Green */}
-        <motion.path 
-          d="M20 80 C 20 80, 40 50, 70 50 L 60 60 C 60 60, 40 60, 30 85 Z" 
-          fill={isDark ? "#007A53" : "#006344"}
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-        />
-        {/* Decorative Circle/Dot for precision feel */}
-        <motion.circle 
-          cx="80" cy="30" r="5" 
-          fill={isDark ? "#fff" : "#007A53"}
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 1, type: "spring" }}
-        />
-      </svg>
+    <div className="relative w-12 h-12 flex-shrink-0 overflow-hidden rounded-full">
+      <img 
+        src={logo} 
+        alt="Green Lane Logo" 
+        className="w-full h-full object-cover"
+      />
     </div>
     <div className="flex flex-col justify-center leading-none">
       <span className={`text-2xl font-black tracking-tight ${isDark ? 'text-white' : 'text-brand-800'}`}>
