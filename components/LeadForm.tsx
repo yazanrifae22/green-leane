@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { ServiceType } from '../types';
 import { Send, CheckCircle, Globe, Clock, Package } from 'lucide-react';
+import logo from '../src/assets/logo.jpg';
 
 interface LeadFormProps {
   selectedService: ServiceType | '';
@@ -47,6 +48,21 @@ export const LeadForm: React.FC<LeadFormProps> = ({ selectedService }) => {
             {/* Left Content Panel */}
             <div className="lg:w-2/5 bg-slate-900 text-white p-10 md:p-16 relative overflow-hidden flex flex-col justify-between">
               <div className="relative z-10">
+                {/* Logo */}
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="relative w-14 h-14 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-brand-500/40">
+                    <img 
+                      src={logo} 
+                      alt="Green Lane Logo" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center leading-none">
+                    <span className="text-2xl font-black tracking-tight text-white">Green</span>
+                    <span className="text-2xl font-black tracking-tight text-brand-400">Lane</span>
+                  </div>
+                </div>
+                
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">Let's Get Your Cargo Moving</h2>
                 <p className="text-slate-300 mb-12 leading-relaxed">
                    Connect with our experts today. We analyze your route, cargo type, and timeline to provide the most efficient "Green Lane" solution.
@@ -100,8 +116,18 @@ export const LeadForm: React.FC<LeadFormProps> = ({ selectedService }) => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="h-full flex flex-col items-center justify-center text-center py-12"
                 >
-                  <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6 animate-bounce">
-                    <CheckCircle size={40} />
+                  {/* Success Logo */}
+                  <div className="relative mb-6">
+                    <div className="w-24 h-24 overflow-hidden rounded-full ring-4 ring-brand-500/30 shadow-xl shadow-brand-500/20">
+                      <img 
+                        src={logo} 
+                        alt="Green Lane Logo" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg">
+                      <CheckCircle size={18} />
+                    </div>
                   </div>
                   <h3 className="text-3xl font-bold text-slate-800 mb-2">Request Received!</h3>
                   <p className="text-slate-500 max-w-md">
@@ -109,7 +135,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({ selectedService }) => {
                   </p>
                   <button 
                     onClick={() => reset()} 
-                    className="mt-8 text-brand-600 font-semibold hover:text-brand-700 underline"
+                    className="mt-8 px-6 py-3 bg-brand-500 text-white font-semibold rounded-full hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25"
                   >
                     Send another request
                   </button>

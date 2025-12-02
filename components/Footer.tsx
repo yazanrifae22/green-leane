@@ -5,6 +5,7 @@ import {
   Headphones, Facebook, Twitter, Linkedin, Instagram,
   ChevronUp
 } from 'lucide-react';
+import logo from '../src/assets/logo.jpg';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -22,21 +23,13 @@ export const Footer: React.FC = () => {
           
           {/* Column 1: Brand & Story (Span 5) */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="flex items-center gap-3 mb-2">
-               <div className="w-14 h-14 flex-shrink-0">
-                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                    {/* Top Chevron / Lane */}
-                    <path 
-                      d="M25 55 C 25 55, 45 35, 75 35 L 85 45 C 85 45, 55 45, 40 65 Z" 
-                      fill="#007A53"
-                    />
-                    {/* Bottom Chevron / Lane */}
-                    <path 
-                      d="M20 80 C 20 80, 40 50, 70 50 L 60 60 C 60 60, 40 60, 30 85 Z" 
-                      fill="#006344"
-                    />
-                    <circle cx="80" cy="30" r="5" fill="#fff" />
-                  </svg>
+            <div className="flex items-center gap-4 mb-2 group cursor-pointer" onClick={scrollToTop}>
+               <div className="relative w-16 h-16 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-brand-500/30 group-hover:ring-brand-500/60 transition-all">
+                  <img 
+                    src={logo} 
+                    alt="Green Lane Logo" 
+                    className="w-full h-full object-cover"
+                  />
                </div>
                <div className="flex flex-col justify-center leading-none">
                  <span className="text-3xl font-black tracking-tight text-white">Green</span>

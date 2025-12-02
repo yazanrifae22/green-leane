@@ -178,6 +178,26 @@ export const Header: React.FC = () => {
               <X size={32} />
             </button>
 
+            {/* Logo in Mobile Menu */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="absolute top-8 left-8 flex items-center gap-3"
+            >
+              <div className="relative w-12 h-12 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-brand-500/50">
+                <img 
+                  src={logo} 
+                  alt="Green Lane Logo" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col justify-center leading-none">
+                <span className="text-xl font-black tracking-tight text-white">Green</span>
+                <span className="text-xl font-black tracking-tight text-brand-400">Lane</span>
+              </div>
+            </motion.div>
+
             <motion.nav className="flex flex-col gap-8">
               {navLinks.concat({ label: 'Request Quote', id: '#quote', sectionId: 'quote' }).map((link, idx) => (
                 <motion.button

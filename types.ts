@@ -6,8 +6,6 @@ export enum ServiceType {
   WarehouseStorage = "Warehouse Storage",
   AirCharter = "Air Charter",
   Procurement = "Procurement",
-  DangerousGoods = "Dangerous Goods",
-  ShipmentTracking = "Shipment Tracking",
   HomeMoving = "Home Moving"
 }
 
