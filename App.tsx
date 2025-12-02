@@ -1,41 +1,41 @@
-import React, { useState } from 'react';
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { LeadForm } from './components/LeadForm';
-import { Footer } from './components/Footer';
-import { ServiceModal } from './components/ServiceModal';
-import { ServiceType } from './types';
+import { useState } from 'react'
+import { Footer } from './components/Footer'
+import { Header } from './components/Header'
+import { Hero } from './components/Hero'
+import { LeadForm } from './components/LeadForm'
+import { ServiceModal } from './components/ServiceModal'
+import { Services } from './components/Services'
+import { ServiceType } from './types'
 
 function App() {
-  const [selectedService, setSelectedService] = useState<ServiceType | ''>('');
-  const [modalService, setModalService] = useState<ServiceType | null>(null);
+  const [selectedService, setSelectedService] = useState<ServiceType | ''>('')
+  const [modalService, setModalService] = useState<ServiceType | null>(null)
 
   const handleServiceSelect = (service: ServiceType) => {
     // Open the service modal
-    setModalService(service);
-  };
+    setModalService(service)
+  }
 
   const handleGetQuote = (service: ServiceType) => {
-    setSelectedService(service);
+    setSelectedService(service)
     // Scroll to quote form
     setTimeout(() => {
-      const element = document.getElementById('quote');
+      const element = document.getElementById('quote')
       if (element) {
-        const headerOffset = 100;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const headerOffset = 100
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
-        });
+          behavior: 'smooth',
+        })
       }
-    }, 100);
-  };
+    }, 100)
+  }
 
   const handleCloseModal = () => {
-    setModalService(null);
-  };
+    setModalService(null)
+  }
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
@@ -46,15 +46,11 @@ function App() {
         <LeadForm selectedService={selectedService} />
       </main>
       <Footer />
-      
+
       {/* Service Detail Modal */}
-      <ServiceModal 
-        service={modalService} 
-        onClose={handleCloseModal}
-        onGetQuote={handleGetQuote}
-      />
+      <ServiceModal service={modalService} onClose={handleCloseModal} onGetQuote={handleGetQuote} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

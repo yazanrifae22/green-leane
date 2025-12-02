@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Plane, Ship, Truck } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Import hero images
 import hero1 from '../src/assets/hero/hero_1.png';
@@ -8,57 +10,68 @@ import hero2 from '../src/assets/hero/hero_2.png';
 import hero3 from '../src/assets/hero/hero_3.png';
 import hero4 from '../src/assets/hero/hero_4.png';
 
-const heroSlides = [
-  {
-    image: hero1,
-    title: "The Fast",
-    highlight: "Green Lane",
-    subtitle: "To Trade.",
-    description: "Navigate global commerce with speed, transparency, and institutional reliability.",
-  },
-  {
-    image: hero2,
-    title: "Your Cargo,",
-    highlight: "Our Mission",
-    subtitle: "Delivered.",
-    description: "Land freight solutions connecting borders seamlessly across continents.",
-  },
-  {
-    image: hero3,
-    title: "Global",
-    highlight: "Logistics",
-    subtitle: "Network.",
-    description: "Air, sea, and land — integrated solutions for your supply chain needs.",
-  },
-  {
-    image: hero4,
-    title: "Future of",
-    highlight: "Sustainable",
-    subtitle: "Shipping.",
-    description: "Eco-conscious logistics for a greener tomorrow.",
-  },
-];
+// === HERO SLIDES DATA - Uses i18n keys ===
+const heroImages = [hero1, hero2, hero3, hero4];
 
 export const Hero: React.FC = () => {
+  const { t } = useTranslation();
+  const { isRTL } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
+  // === HERO SLIDES - Dynamically translated ===
+  const heroSlides = [
+    {
+      image: heroImages[0],
+      title: t('hero.slides.slide1.title'),
+      highlight: t('hero.slides.slide1.highlight'),
+      subtitle: t('hero.slides.slide1.subtitle'),
+      description: t('hero.slides.slide1.description'),
+    },
+    {
+      image: heroImages[1],
+      title: t('hero.slides.slide2.title'),
+      highlight: t('hero.slides.slide2.highlight'),
+      subtitle: t('hero.slides.slide2.subtitle'),
+      description: t('hero.slides.slide2.description'),
+    },
+    {
+      image: heroImages[2],
+      title: t('hero.slides.slide3.title'),
+      highlight: t('hero.slides.slide3.highlight'),
+      subtitle: t('hero.slides.slide3.subtitle'),
+      description: t('hero.slides.slide3.description'),
+    },
+    {
+      image: heroImages[3],
+      title: t('hero.slides.slide4.title'),
+      highlight: t('hero.slides.slide4.highlight'),
+      subtitle: t('hero.slides.slide4.subtitle'),
+      description: t('hero.slides.slide4.description'),
+    },
+  ];
+
+  // === SERVICE ICONS DATA - Translated ===
+  const serviceIcons = [
+    { icon: Plane, label: t('services.airFreight.title'), delay: 0 },
+    { icon: Ship, label: t('services.seaFreight.title'), delay: 0.1 },
+    { icon: Truck, label: t('services.landFreight.title'), delay: 0.2 },
+  ];
+
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  }, []);
+  }, [heroSlides.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  }, []);
+  }, [heroSlides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
     setIsAutoPlaying(false);
-    // Resume autoplay after 10 seconds
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
-  // Auto-slide effect
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(nextSlide, 6000);
@@ -98,7 +111,6 @@ export const Hero: React.FC = () => {
                 backgroundImage: `url(${heroSlides[currentSlide].image})`,
               }}
             >
-              {/* Ken Burns Effect - subtle zoom animation */}
               <motion.div
                 initial={{ scale: 1 }}
                 animate={{ scale: 1.08 }}
@@ -112,11 +124,10 @@ export const Hero: React.FC = () => {
           </motion.div>
         </AnimatePresence>
         
-        {/* Overlay Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent" />
+        {/* Overlay Gradients - RTL aware */}
+        <div className={`absolute inset-0 ${isRTL ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-slate-950/90 via-slate-950/60 to-transparent`} />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/40" />
         
-        {/* Subtle grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
@@ -135,7 +146,7 @@ export const Hero: React.FC = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-400 text-xs font-bold tracking-wider mb-6 md:mb-8 backdrop-blur-sm"
               >
                 <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
-                NEXT-GEN LOGISTICS
+                {t('hero.badge')}
               </motion.div>
 
               {/* Animated Title */}
@@ -175,7 +186,8 @@ export const Hero: React.FC = () => {
                   className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-brand-500 text-white rounded-full font-bold text-base sm:text-lg overflow-hidden transition-all hover:shadow-[0_0_40px_-10px_rgba(0,166,81,0.6)] w-full sm:w-auto justify-center flex"
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    Start Shipping <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform"/>
+                    {t('hero.startShipping')} 
+                    <ArrowRight size={20} className={`group-hover:translate-x-1 transition-transform ${isRTL ? 'rotate-180 group-hover:-translate-x-1' : ''}`}/>
                   </span>
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
                 </motion.button>
@@ -185,7 +197,7 @@ export const Hero: React.FC = () => {
                   whileHover={{ scale: 1.05 }}
                   className="px-6 sm:px-8 py-3 sm:py-4 bg-white/5 border border-white/20 text-white rounded-full font-medium text-base sm:text-lg hover:bg-white/10 transition-colors backdrop-blur-sm w-full sm:w-auto justify-center flex"
                 >
-                  Explore Services
+                  {t('hero.exploreServices')}
                 </motion.button>
               </motion.div>
               
@@ -198,44 +210,40 @@ export const Hero: React.FC = () => {
               >
                 <div>
                   <h4 className="text-xl sm:text-2xl font-bold text-white">30+</h4>
-                  <p className="text-xs text-slate-400 uppercase tracking-wider">Years Exp</p>
+                  <p className="text-xs text-slate-400 uppercase tracking-wider">{t('hero.yearsExp')}</p>
                 </div>
                 <div>
-                  <h4 className="text-xl sm:text-2xl font-bold text-white">Global</h4>
-                  <p className="text-xs text-slate-400 uppercase tracking-wider">Coverage</p>
+                  <h4 className="text-xl sm:text-2xl font-bold text-white">{t('hero.global')}</h4>
+                  <p className="text-xs text-slate-400 uppercase tracking-wider">{t('hero.coverage')}</p>
                 </div>
                 <div>
                   <h4 className="text-xl sm:text-2xl font-bold text-white">24/7</h4>
-                  <p className="text-xs text-slate-400 uppercase tracking-wider">Support</p>
+                  <p className="text-xs text-slate-400 uppercase tracking-wider">{t('hero.support')}</p>
                 </div>
               </motion.div>
             </div>
 
             {/* Right Side - Service Icons (Desktop Only) */}
             <motion.div 
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: isRTL ? -50 : 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="hidden lg:flex flex-col items-end justify-center gap-6"
+              className={`hidden lg:flex flex-col ${isRTL ? 'items-start' : 'items-end'} justify-center gap-6`}
             >
-              {[
-                { icon: Plane, label: "Air Freight", delay: 0 },
-                { icon: Ship, label: "Sea Freight", delay: 0.1 },
-                { icon: Truck, label: "Land Freight", delay: 0.2 },
-              ].map((item, idx) => (
+              {serviceIcons.map((item, idx) => (
                 <motion.div
                   key={item.label}
-                  initial={{ opacity: 0, x: 30 }}
+                  initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 + item.delay }}
-                  className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-brand-500/30 transition-all cursor-pointer group"
+                  className={`flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-brand-500/30 transition-all cursor-pointer group ${isRTL ? 'flex-row-reverse' : ''}`}
                 >
                   <div className="w-12 h-12 rounded-xl bg-brand-500/20 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-white transition-all">
                     <item.icon size={24} />
                   </div>
-                  <div>
+                  <div className={isRTL ? 'text-right' : ''}>
                     <p className="text-white font-bold">{item.label}</p>
-                    <p className="text-slate-400 text-sm">Express Delivery</p>
+                    <p className="text-slate-400 text-sm">{t('hero.expressDelivery')}</p>
                   </div>
                 </motion.div>
               ))}
@@ -269,6 +277,7 @@ export const Hero: React.FC = () => {
                         animate={{ scaleX: 1 }}
                         transition={{ duration: 6, ease: "linear" }}
                         key={`progress-${currentSlide}`}
+                        style={{ originX: isRTL ? 1 : 0 }}
                       />
                     )}
                   </div>
@@ -277,15 +286,15 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="flex items-center gap-2">
+            <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <button
-                onClick={prevSlide}
+                onClick={isRTL ? nextSlide : prevSlide}
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-brand-500 hover:border-brand-500 transition-all"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
-                onClick={nextSlide}
+                onClick={isRTL ? prevSlide : nextSlide}
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-brand-500 hover:border-brand-500 transition-all"
               >
                 <ChevronRight size={20} />

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" dir="ltr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green Lane AE | Specialized Cargo Partner</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- === ARABIC FONT SUPPORT - Added for RTL === -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Outfit', 'sans-serif'],
+              sans: ['Outfit', 'Tajawal', 'sans-serif'],
               mono: ['Space Grotesk', 'monospace'],
+              arabic: ['Tajawal', 'sans-serif'],
             },
             colors: {
               brand: {
@@ -21,12 +23,12 @@
                 200: '#bbf7d9',
                 300: '#86efbd',
                 400: '#4ade98',
-                500: '#007A53', // Updated to match the logo image exact degree
+                500: '#007A53',
                 600: '#006344',
                 700: '#005038',
                 800: '#00412f',
                 900: '#003628',
-                accent: '#CCF381' // A lime green accent for high contrast dark mode
+                accent: '#CCF381'
               }
             },
             backgroundImage: {
@@ -76,6 +78,85 @@
         -webkit-backdrop-filter: blur(16px);
         box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
       }
+
+      /* === RTL/LTR SPECIFIC STYLES === */
+      
+      /* RTL font family override */
+      html[dir="rtl"] body {
+        font-family: 'Tajawal', 'Outfit', sans-serif;
+      }
+      
+      /* RTL text alignment fixes */
+      html[dir="rtl"] .text-left {
+        text-align: right;
+      }
+      html[dir="rtl"] .text-right {
+        text-align: left;
+      }
+      
+      /* RTL flex direction fixes for specific layouts */
+      html[dir="rtl"] .rtl\:flex-row-reverse {
+        flex-direction: row-reverse;
+      }
+      
+      /* RTL margin/padding adjustments */
+      html[dir="rtl"] .ml-auto {
+        margin-left: 0;
+        margin-right: auto;
+      }
+      html[dir="rtl"] .mr-auto {
+        margin-right: 0;
+        margin-left: auto;
+      }
+      
+      /* RTL border radius adjustments for pill shapes */
+      html[dir="rtl"] .rounded-l-full {
+        border-radius: 0 9999px 9999px 0;
+      }
+      html[dir="rtl"] .rounded-r-full {
+        border-radius: 9999px 0 0 9999px;
+      }
+      
+      /* RTL transform adjustments for icons/arrows */
+      html[dir="rtl"] .rtl\:rotate-180 {
+        transform: rotate(180deg);
+      }
+      html[dir="rtl"] .rtl\:scale-x-[-1] {
+        transform: scaleX(-1);
+      }
+      
+      /* RTL gradient direction fixes */
+      html[dir="rtl"] .bg-gradient-to-r {
+        background-image: linear-gradient(to left, var(--tw-gradient-stops));
+      }
+      html[dir="rtl"] .bg-gradient-to-l {
+        background-image: linear-gradient(to right, var(--tw-gradient-stops));
+      }
+      
+      /* RTL timeline/border adjustments */
+      html[dir="rtl"] .border-l {
+        border-left: 0;
+        border-right-width: 1px;
+      }
+      html[dir="rtl"] .pl-6 {
+        padding-left: 0;
+        padding-right: 1.5rem;
+      }
+      html[dir="rtl"] .ml-2 {
+        margin-left: 0;
+        margin-right: 0.5rem;
+      }
+      html[dir="rtl"] .-left-\\[30px\\] {
+        left: auto;
+        right: -30px;
+      }
+      
+      /* Smooth direction transitions */
+      * {
+        transition-property: margin, padding, border-radius;
+        transition-duration: 150ms;
+        transition-timing-function: ease-in-out;
+      }
     </style>
   <script type="importmap">
 {
@@ -90,7 +171,7 @@
 }
 </script>
 </head>
-  <body>
+  <body class="ltr">
     <div id="root"></div>
     <script type="module" src="./index.tsx"></script>
   </body>

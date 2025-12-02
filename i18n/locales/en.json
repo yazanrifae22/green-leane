@@ -1,0 +1,374 @@
+{
+  "common": {
+    "brandName": "Green Lane",
+    "green": "Green",
+    "lane": "Lane",
+    "getQuote": "Get Quote",
+    "requestQuote": "Request Quote",
+    "learnMore": "Learn More",
+    "viewDetails": "View Details",
+    "submit": "Submit",
+    "processing": "Processing...",
+    "locations": "Dubai • Syria • USA"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About"
+  },
+  "hero": {
+    "badge": "NEXT-GEN LOGISTICS",
+    "startShipping": "Start Shipping",
+    "exploreServices": "Explore Services",
+    "yearsExp": "Years Exp",
+    "coverage": "Coverage",
+    "support": "Support",
+    "global": "Global",
+    "expressDelivery": "Express Delivery",
+    "slides": {
+      "slide1": {
+        "title": "The Fast",
+        "highlight": "Green Lane",
+        "subtitle": "To Trade.",
+        "description": "Navigate global commerce with speed, transparency, and institutional reliability."
+      },
+      "slide2": {
+        "title": "Your Cargo,",
+        "highlight": "Our Mission",
+        "subtitle": "Delivered.",
+        "description": "Land freight solutions connecting borders seamlessly across continents."
+      },
+      "slide3": {
+        "title": "Global",
+        "highlight": "Logistics",
+        "subtitle": "Network.",
+        "description": "Air, sea, and land — integrated solutions for your supply chain needs."
+      },
+      "slide4": {
+        "title": "Future of",
+        "highlight": "Sustainable",
+        "subtitle": "Shipping.",
+        "description": "Eco-conscious logistics for a greener tomorrow."
+      }
+    }
+  },
+  "services": {
+    "badge": "OUR CAPABILITIES",
+    "title": "World-Class Logistics",
+    "titleHighlight": "At Your Service",
+    "description": "From urgent air charters to massive sea freight operations, we cover every aspect of the supply chain with precision and care.",
+    "clickToLearn": "Click on any service to learn more",
+    "contactUs": "Contact Us For Custom Solutions",
+    "airFreight": {
+      "title": "Air Freight",
+      "desc": "Rapid global air transport for time-sensitive cargo."
+    },
+    "seaFreight": {
+      "title": "Sea Freight",
+      "desc": "Cost-effective ocean shipping for large volume goods."
+    },
+    "landFreight": {
+      "title": "Land Freight",
+      "desc": "Regional trucking networks connecting borders seamlessly."
+    },
+    "doorToDoor": {
+      "title": "Door to Door",
+      "desc": "Complete handling from pickup to final delivery address."
+    },
+    "warehouseStorage": {
+      "title": "Warehouse Storage",
+      "desc": "Secure storage solutions for short or long-term needs."
+    },
+    "airCharter": {
+      "title": "Air Charter",
+      "desc": "Exclusive aircraft chartering for specialized cargo."
+    },
+    "procurement": {
+      "title": "Procurement",
+      "desc": "Sourcing assistance and supply chain procurement management."
+    },
+    "homeMoving": {
+      "title": "Home Moving",
+      "desc": "Stress-free international and domestic relocation services."
+    }
+  },
+  "leadForm": {
+    "title": "Let's Get Your Cargo Moving",
+    "description": "Connect with our experts today. We analyze your route, cargo type, and timeline to provide the most efficient \"Green Lane\" solution.",
+    "fastResponse": "Fast Response",
+    "fastResponseDesc": "Quotes within 2 business hours",
+    "globalNetwork": "Global Network",
+    "globalNetworkDesc": "Operations across US, UAE, & Syria",
+    "customSolutions": "Custom Solutions",
+    "customSolutionsDesc": "Tailored packaging & handling",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Jane Smith",
+    "emailAddress": "Email Address",
+    "emailPlaceholder": "jane@company.com",
+    "phoneNumber": "Phone Number",
+    "phonePlaceholder": "+971 ...",
+    "serviceOfInterest": "Service of Interest",
+    "selectService": "Select Service...",
+    "cargoDetails": "Cargo Details / Message",
+    "cargoPlaceholder": "e.g. 2 Containers from Shanghai to Dubai, Electronics...",
+    "submitRequest": "Submit Request",
+    "successTitle": "Request Received!",
+    "successMessage": "Thank you for choosing Green Lane AE. One of our logistics specialists will contact you shortly at the email provided.",
+    "sendAnother": "Send another request",
+    "errors": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "phoneRequired": "Phone is required",
+      "serviceRequired": "Please select a service",
+      "messageRequired": "Message is required"
+    }
+  },
+  "footer": {
+    "description": "International shipping made simple. We provide full handling of goods and customs paperwork with a promise of fast, clear, and dependable end-to-end service.",
+    "ourJourney": "Our Journey",
+    "timeline": {
+      "1990s": "Roots in Syria building logistics expertise.",
+      "2022": "HQ established in USA. Expanded to Dubai hub.",
+      "2025": "Expanded operations supporting global commerce."
+    },
+    "whyGreenLane": "Why Green Lane?",
+    "values": {
+      "reliability": {
+        "title": "Institutional Reliability",
+        "desc": "Decades of experience & efficiency."
+      },
+      "service": {
+        "title": "Complete Service",
+        "desc": "True door-to-door handling."
+      },
+      "prices": {
+        "title": "Fair Prices",
+        "desc": "Competitive pricing, no surprises."
+      },
+      "support": {
+        "title": "Dedicated Support",
+        "desc": "Responsive help at every step."
+      }
+    },
+    "globalHubs": "Global Hubs",
+    "branches": {
+      "uae": { "country": "UAE", "city": "Dubai" },
+      "syria": { "country": "Syria", "city": "Damascus" },
+      "usa": { "country": "USA", "city": "California" }
+    },
+    "ourMission": "Our Mission",
+    "missionQuote": "\"To be the fastest, most reliable, fully compliant global shipping partner.\"",
+    "copyright": "Green Lane Fast Cargo. All rights reserved."
+  },
+  "serviceModal": {
+    "aboutService": "About This Service",
+    "keyFeatures": "Key Features",
+    "howItWorks": "How It Works",
+    "readyToStart": "Ready to Get Started?",
+    "ctaDescription": "Contact our team today for a customized quote tailored to your specific needs.",
+    "getAQuote": "Get a Quote",
+    "serviceImage": "Service Image",
+    "airFreight": {
+      "tagline": "Speed Meets Reliability",
+      "description": "Our air freight services provide the fastest way to move your cargo across the globe. With partnerships with major airlines and access to chartered flights, we ensure your time-sensitive shipments reach their destination on schedule. Whether it's urgent spare parts, perishable goods, or high-value items, our air freight solutions are tailored to meet your specific needs.",
+      "features": [
+        "Express and economy air freight options",
+        "Door-to-airport and airport-to-airport services",
+        "Temperature-controlled cargo handling",
+        "Real-time flight tracking and updates",
+        "Customs clearance and documentation",
+        "Consolidated and direct flight options"
+      ],
+      "benefits": {
+        "transit": { "title": "Fastest Transit", "desc": "Delivery within 1-5 days globally" },
+        "network": { "title": "Global Network", "desc": "Access to 500+ destinations worldwide" },
+        "security": { "title": "Secure Handling", "desc": "24/7 monitored cargo facilities" }
+      },
+      "process": [
+        "Request a quote with cargo details",
+        "Receive customized routing options",
+        "Confirm booking and prepare cargo",
+        "Pickup and airport handling",
+        "Real-time tracking during transit",
+        "Customs clearance and final delivery"
+      ]
+    },
+    "seaFreight": {
+      "tagline": "Cost-Effective Global Shipping",
+      "description": "Sea freight remains the backbone of international trade, offering the most economical solution for large-volume shipments. Our ocean freight services connect you to every major port worldwide with flexible container options including FCL (Full Container Load) and LCL (Less than Container Load) to optimize your shipping costs.",
+      "features": [
+        "FCL and LCL container options",
+        "Refrigerated (reefer) container services",
+        "Break-bulk and project cargo handling",
+        "Multi-modal transportation solutions",
+        "Port-to-port and door-to-door options",
+        "Cargo insurance and documentation"
+      ],
+      "benefits": {
+        "volume": { "title": "High Volume", "desc": "Handle containers of any size" },
+        "ports": { "title": "All Major Ports", "desc": "Connected to 200+ global ports" },
+        "protection": { "title": "Cargo Protection", "desc": "Full marine insurance available" }
+      },
+      "process": [
+        "Submit cargo specifications",
+        "Receive container and routing options",
+        "Book vessel space and schedule",
+        "Cargo pickup and container stuffing",
+        "Ocean transit with live tracking",
+        "Port handling and final delivery"
+      ]
+    },
+    "landFreight": {
+      "tagline": "Seamless Cross-Border Transport",
+      "description": "Our land freight services provide reliable road transportation solutions across borders and continents. With a vast network of trusted carriers and modern fleet management, we ensure your cargo moves efficiently whether it's a single pallet or full truckload shipment across the Middle East, Europe, or beyond.",
+      "features": [
+        "Full Truckload (FTL) services",
+        "Less than Truckload (LTL) options",
+        "Cross-border documentation handling",
+        "GPS-tracked fleet monitoring",
+        "Express and scheduled deliveries",
+        "Flatbed and specialized vehicle options"
+      ],
+      "benefits": {
+        "scheduling": { "title": "Flexible Scheduling", "desc": "Daily departures available" },
+        "network": { "title": "Trusted Network", "desc": "Vetted carrier partnerships" },
+        "coverage": { "title": "Regional Coverage", "desc": "GCC, Middle East, and Europe" }
+      },
+      "process": [
+        "Provide pickup and delivery locations",
+        "Receive route and pricing options",
+        "Schedule pickup date and time",
+        "Load cargo and begin transit",
+        "Cross-border clearance handling",
+        "Final delivery confirmation"
+      ]
+    },
+    "doorToDoor": {
+      "tagline": "Complete End-to-End Solution",
+      "description": "Experience hassle-free shipping with our comprehensive door-to-door service. We handle everything from pickup at your location to final delivery at the destination address. This all-inclusive service eliminates the complexity of coordinating multiple logistics providers and ensures seamless handling of your cargo.",
+      "features": [
+        "Single point of contact throughout",
+        "All transport modes coordinated",
+        "Complete customs handling",
+        "Packaging and crating services",
+        "Insurance coverage included",
+        "Delivery confirmation and POD"
+      ],
+      "benefits": {
+        "hassle": { "title": "Zero Hassle", "desc": "We manage the entire process" },
+        "time": { "title": "Time Saving", "desc": "No coordination needed from you" },
+        "visibility": { "title": "Full Visibility", "desc": "Track from origin to destination" }
+      },
+      "process": [
+        "Share origin and destination details",
+        "Receive all-inclusive quotation",
+        "Schedule pickup at your premises",
+        "We handle packing if needed",
+        "Multi-modal transport coordination",
+        "Delivery to final destination"
+      ]
+    },
+    "warehouseStorage": {
+      "tagline": "Secure Storage Solutions",
+      "description": "Our strategically located warehouses provide safe and efficient storage solutions for your goods. Whether you need short-term storage during transit or long-term inventory management, our facilities are equipped with modern security systems, climate control options, and professional handling to protect your valuable cargo.",
+      "features": [
+        "Short and long-term storage options",
+        "Climate-controlled facilities",
+        "Inventory management systems",
+        "Pick and pack services",
+        "Cross-docking capabilities",
+        "24/7 security and surveillance"
+      ],
+      "benefits": {
+        "security": { "title": "Maximum Security", "desc": "CCTV and access control" },
+        "inventory": { "title": "Inventory Control", "desc": "Real-time stock visibility" },
+        "locations": { "title": "Strategic Locations", "desc": "Dubai, Syria, USA facilities" }
+      },
+      "process": [
+        "Specify storage requirements",
+        "Facility tour and assessment",
+        "Agree on terms and pricing",
+        "Cargo receipt and inspection",
+        "Organized storage allocation",
+        "Retrieval on your schedule"
+      ]
+    },
+    "airCharter": {
+      "tagline": "Exclusive Aircraft Solutions",
+      "description": "When standard air freight isn't enough, our air charter services provide dedicated aircraft for your exclusive use. Ideal for oversized cargo, urgent shipments, or destinations with limited commercial service, we arrange everything from cargo planes to specialized aircraft to meet your unique requirements.",
+      "features": [
+        "Dedicated aircraft booking",
+        "Oversized cargo capability",
+        "Remote destination access",
+        "24/7 charter arrangements",
+        "On-board courier options",
+        "Livestock and special cargo handling"
+      ],
+      "benefits": {
+        "schedule": { "title": "Your Schedule", "desc": "Fly when you need to" },
+        "size": { "title": "Any Size Cargo", "desc": "No weight or size limits" },
+        "anywhere": { "title": "Anywhere", "desc": "Reach any airport worldwide" }
+      },
+      "process": [
+        "Describe cargo and urgency",
+        "Receive aircraft options",
+        "Confirm charter booking",
+        "Cargo preparation and loading",
+        "Direct flight to destination",
+        "Immediate unloading and handover"
+      ]
+    },
+    "procurement": {
+      "tagline": "Source With Confidence",
+      "description": "Beyond logistics, we offer procurement services to help you source products and materials from global markets. Our team assists with supplier identification, quality verification, negotiation, and purchase coordination, ensuring you get the best value while we handle the complexity of international sourcing.",
+      "features": [
+        "Supplier identification and vetting",
+        "Quality inspection services",
+        "Price negotiation support",
+        "Purchase order management",
+        "Factory audits available",
+        "Consolidation and shipping coordination"
+      ],
+      "benefits": {
+        "suppliers": { "title": "Trusted Suppliers", "desc": "Pre-vetted vendor network" },
+        "quality": { "title": "Quality Assured", "desc": "Inspection before shipping" },
+        "sourcing": { "title": "Global Sourcing", "desc": "Access markets worldwide" }
+      },
+      "process": [
+        "Share product requirements",
+        "Receive supplier options",
+        "Sample evaluation if needed",
+        "Negotiate and place orders",
+        "Quality inspection at source",
+        "Consolidation and shipping"
+      ]
+    },
+    "homeMoving": {
+      "tagline": "Stress-Free Relocation",
+      "description": "Moving your home internationally can be overwhelming. Our professional home moving services take the stress out of relocation with comprehensive packing, careful handling, and efficient delivery of your household belongings. From a single room to an entire villa, we ensure your possessions arrive safely at your new home.",
+      "features": [
+        "Professional packing services",
+        "Furniture disassembly and reassembly",
+        "Custom crating for fragile items",
+        "Vehicle shipping available",
+        "Pet relocation assistance",
+        "Unpacking and setup at destination"
+      ],
+      "benefits": {
+        "handling": { "title": "Careful Handling", "desc": "Trained moving specialists" },
+        "protection": { "title": "Full Protection", "desc": "Comprehensive insurance" },
+        "personal": { "title": "Personal Touch", "desc": "Dedicated move coordinator" }
+      },
+      "process": [
+        "Home survey and assessment",
+        "Detailed moving plan created",
+        "Professional packing begins",
+        "Loading and transport",
+        "Customs clearance handled",
+        "Delivery, unpacking, and setup"
+      ]
+    }
+  }
+}
+
