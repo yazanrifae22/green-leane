@@ -1,38 +1,65 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Import translation files
 import en from './locales/en.json';
 import ar from './locales/ar.json';
 
-// Check if localStorage is available (can fail in some contexts like private browsing)
-const isLocalStorageAvailable = (): boolean => {
+// Check if we're in a browser environment and storage is available
+const canUseStorage = (): boolean => {
+  if (typeof window === 'undefined') return false;
   try {
-    const testKey = '__i18n_test__';
-    localStorage.setItem(testKey, testKey);
-    localStorage.removeItem(testKey);
+    const testKey = '__storage_test__';
+    window.localStorage.setItem(testKey, testKey);
+    window.localStorage.removeItem(testKey);
     return true;
   } catch (e) {
     return false;
   }
 };
 
-// Configure detection based on localStorage availability
-const detectionOptions = isLocalStorageAvailable()
-  ? {
-      order: ['localStorage', 'navigator', 'htmlTag'],
-      caches: ['localStorage'],
+// Custom language detector that doesn't use localStorage if unavailable
+const customLanguageDetector = {
+  type: 'languageDetector' as const,
+  async: false,
+  detect: (): string => {
+    // Try localStorage first if available
+    if (canUseStorage()) {
+      try {
+        const stored = window.localStorage.getItem('i18nextLng');
+        if (stored) return stored;
+      } catch (e) {
+        // Ignore storage errors
+      }
     }
-  : {
-      order: ['navigator', 'htmlTag'],
-      caches: [], // Don't cache if localStorage is unavailable
-    };
+    
+    // Fall back to navigator language
+    if (typeof navigator !== 'undefined') {
+      const navLang = navigator.language || (navigator as any).userLanguage;
+      if (navLang) {
+        return navLang.split('-')[0]; // Return just 'en' from 'en-US'
+      }
+    }
+    
+    // Default to English
+    return 'en';
+  },
+  init: () => {},
+  cacheUserLanguage: (lng: string) => {
+    if (canUseStorage()) {
+      try {
+        window.localStorage.setItem('i18nextLng', lng);
+      } catch (e) {
+        // Ignore storage errors silently
+      }
+    }
+  }
+};
 
-// i18n configuration
+// i18n configuration - using custom detector to avoid storage access errors
 i18n
-  .use(LanguageDetector) // Detect user language
-  .use(initReactI18next) // Pass i18n to react-i18next
+  .use(customLanguageDetector)
+  .use(initReactI18next)
   .init({
     resources: {
       en: { translation: en },
@@ -43,7 +70,6 @@ i18n
     interpolation: {
       escapeValue: false, // React already escapes values
     },
-    detection: detectionOptions,
   });
 
 export default i18n;
